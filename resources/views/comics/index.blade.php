@@ -15,12 +15,9 @@
             <tr>
                 <th scope="row"> ID</th>
                 <th scope="col"> Title</th>
-                <th scope="col"> Description</th>
                 <th scope="col"> Price</th>
-                <th scope="col"> Series </th>
-                <th scope="col"> Sale_date</th>
                 <th scope="col"> Type </th>   
-                <th scope="col">  </th>   
+                <th scope="col"> Info</th>   
             </tr>    
         </thead>
         <tbody>
@@ -28,12 +25,13 @@
             <tr class= "class-active">
                 <td scope="row"> {{ $comic->id }}</td>
                 <td scope="col"> {{ $comic->title}}</td>
-                <td scope="col"> {{ $comic->description }}</td>
                 <td scope="col"> ${{ $comic->price }}</td>
-                <td scope="col"> {{ $comic->series }}</td>
-                <td scope="col"> {{ $comic->sale_date }}</td>
                 <td scope="col"> {{ $comic->type }}</td>
-                <td scope="col"><i class="fa-solid fa-eye"></i> </td>
+                <td scope="col">
+                    <a href={{ route('comic.show', $comic)}}>
+                        <i class="fa-solid fa-eye"></i> 
+                    </a>
+                </td>
             <tr>
             @endforeach
         </tbody>
