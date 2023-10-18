@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Comic;
+
 class ComicController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $comics = Comic::all();
+
+       return view("comics.index", compact("comics"));
     }
 
     /**
@@ -43,9 +46,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //voglio un oggetto di tipo Comic che chiamo comic
     public function show($id)
     {
-        //
+       //
     }
 
     /**

@@ -12,7 +12,7 @@
             aria-current="page">Home<span class="visually-hidden">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href=" {{ route ('comics')}}">Comics-DB</a>
+          <a class="nav-link {{ Route::currentRouteName() == 'comic.index' ? 'active' : ''}}" href=" {{ route ('comic.index')}}">Comics-DB</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
