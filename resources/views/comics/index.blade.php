@@ -19,7 +19,8 @@
                 <th scope="col"> Title</th>
                 <th scope="col"> Price</th>
                 <th scope="col"> Type </th>   
-                <th scope="col"> Info</th>   
+                <th scope="col"> Info</th>  
+                <th scope="col"> Delete</th>  
             </tr>    
         </thead>
         <tbody>
@@ -34,6 +35,17 @@
                         <i class="fa-solid fa-eye"></i> 
                     </a>
                 </td>
+
+
+                <td scope="col">
+                    <form action="{{ route('comic.destroy', $comic)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                        <button>
+                            <i class="fa-solid fa-trash text-danger"></i>
+                        </button>
+                    </form>
+                <td>
             <tr>
             @endforeach
         </tbody>

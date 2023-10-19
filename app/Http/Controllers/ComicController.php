@@ -43,7 +43,7 @@ class ComicController extends Controller
         $comic->fill($data);
         $comic->save();
 
-        return redirect()->route("comics.store", $comic);
+        return redirect()->route("comic.show", $comic);
 
     }
 
@@ -94,7 +94,7 @@ class ComicController extends Controller
 
        $comic->update($data);
 
-       return redirect()->route("comics.update", $comic);
+       return redirect()->route("comic.show", $comic);
     }
 
 
@@ -104,8 +104,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route("comic.index", $comic);
     }
 }
