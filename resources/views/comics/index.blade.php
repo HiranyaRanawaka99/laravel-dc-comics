@@ -10,9 +10,7 @@
 <div class="container mt-4 ">
     <h1> COMICS DATABASE </h1>
 
-    <button class="btn btn-success"> 
-        <a href=" {{ route ('comic.create') }}"> Torna al database </a>
-     </button> 
+    <a  class="btn btn-success my-4" href=" {{ route ('comic.create') }}"> Inviaci il tuo fumetto </a>
 
     <table class="table table-dark table-striped">
         <thead>
@@ -32,7 +30,7 @@
                 <td scope="col"> ${{ $comic->price }}</td>
                 <td scope="col"> {{ $comic->type }}</td>
                 <td scope="col">
-                    <a href={{ route('comic.show', $comic)}}>
+                    <a href= "{{ route('comic.show', $comic)}}">
                         <i class="fa-solid fa-eye"></i> 
                     </a>
                 </td>

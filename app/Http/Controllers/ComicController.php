@@ -56,19 +56,30 @@ class ComicController extends Controller
     public function show(Comic $comic)
     {
     
-       return view("comic.show", compact("comic"));
+       return view("comics.show", compact("comic"));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 
      */
-    public function edit($id)
+    // METODO 1: dependency injection
+     public function edit(Comic $comic)
     {
-        //
+        return view("comics.edit", compact("comic"));
     }
+
+     // METODO 2: con id
+    // public function edit($id)
+    // {
+
+    //     $comic= Comic::findOrFail($id);
+    //     return view("comic.edit", compact("comic"));
+        
+
+
 
     /**
      * Update the specified resource in storage.
@@ -77,9 +88,13 @@ class ComicController extends Controller
      * @param  int  $id
      *
      */
-    public function update(Request $request)
+    public function update(Request $request, Comic $comic)
     {
-       
+       $data = $request->all();
+
+       $comic->update($data);
+
+       return redirect()->route("comics.update", $comic);
     }
 
 

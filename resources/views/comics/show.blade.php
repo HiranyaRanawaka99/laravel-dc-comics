@@ -3,6 +3,12 @@
 @section('main-content')
 
 <div class="container my-4">
+
+    <a class="btn btn-success" href=" {{ route ('comic.index') }}"> Torna al db </a>
+     
+    <a class="btn btn-warning" href=" {{ route ('comic.edit', $comic) }}"> Modifica fumetto </a>
+
+
         <h2> {{ $comic->title}} </h2>
         <div class="card">
         {{-- <img src="..." class="card-img-top" alt="..."> --}}
