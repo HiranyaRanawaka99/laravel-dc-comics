@@ -22,22 +22,29 @@ class ComicController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function create()
     {
-        //
+        return view("comics.create");
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $comic = new Comic();
+        $comic->fill($data);
+        $comic->save();
+
+        return redirect()->route("comics.store", $comic);
+
     }
 
     /**
@@ -45,11 +52,11 @@ class ComicController extends Controller
      *
      * @param  int  $id
      */
-    //voglio un oggetto di tipo Comic che chiamo comic
+    //oggetto di tipo Comic che chiamo comic
     public function show(Comic $comic)
     {
     
-       return view("comics.show", compact("comic"));
+       return view("comic.show", compact("comic"));
     }
 
     /**
@@ -68,12 +75,13 @@ class ComicController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+       
     }
+
 
     /**
      * Remove the specified resource from storage.

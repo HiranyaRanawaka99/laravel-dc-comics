@@ -10,6 +10,10 @@
 <div class="container mt-4 ">
     <h1> COMICS DATABASE </h1>
 
+    <button class="btn btn-success"> 
+        <a href=" {{ route ('comic.create') }}"> Torna al database </a>
+     </button> 
+
     <table class="table table-dark table-striped">
         <thead>
             <tr>
